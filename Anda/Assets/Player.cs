@@ -14,7 +14,6 @@ public class Player : MonoBehaviour
     public Button AttackButton;
     private Rigidbody2D _body;
     public float FireRate = 0;
-    public float Damage = 10;
     public LayerMask notToHit;
     private float _timeBtwShots;
     public float startTimeBtwShots;
@@ -70,7 +69,7 @@ public class Player : MonoBehaviour
             OnAttack.Invoke();
 
             Instantiate(projectile, shotPoint.position, transform.rotation);
-
+            animator.SetTrigger("Attack");
             _timeBtwShots = startTimeBtwShots;
         }
         else
