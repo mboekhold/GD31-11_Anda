@@ -10,21 +10,29 @@ public class Player : MonoBehaviour
     public float moveSpeed = 8f;
     public Joystick joystick;
     public Animator animator;
-    private bool _facingRight;
+    public bool facingRight;
     public Button AttackButton;
     private Rigidbody2D _body;
-    private float _fireRate;
+    public float FireRate = 0;
+    public float Damage = 10;
+    public LayerMask notToHit;
+    private float _timeBtwShots;
+    public float startTimeBtwShots;
+    public Transform shotPoint;
     private float _nextFire;
     public UnityEvent OnAttack;
-    public GameObject arrow;
+    public GameObject projectile;
+    
     
 
     private void Start()
     {
-        _facingRight = true;
+        facingRight = true;
         _body.GetComponent<Rigidbody2D>();
-
+        AttackButton.onClick.AddListener(() => { ShootArrow(); });
         
+
+
     }
     private void Update()
     {
@@ -43,29 +51,31 @@ public class Player : MonoBehaviour
 
     private void Flip(float horizontal)
     {
-        if (horizontal > 0 && !_facingRight || horizontal < 0 && _facingRight)
+        if (horizontal > 0 && !facingRight || horizontal < 0 && facingRight)
         {
-            _facingRight = !_facingRight;
+            facingRight = !facingRight;
             Vector3 theScale = transform.localScale;
             theScale.x *= -1;
             transform.localScale = theScale;
         }
     }
 
-    private void ShootArrow()
+    public void ShootArrow()
     {
         Vector2 position = transform.position;
         position.x += .5f;
         position.y += .5f;
-        if (Time.time > _nextFire)
+        if (_timeBtwShots <= 0)
         {
             OnAttack.Invoke();
-            
-                var firedArrow = Instantiate(arrow, position, Quaternion.identity);
-                _nextFire = Time.time + _fireRate;
 
-            
+            Instantiate(projectile, shotPoint.position, transform.rotation);
 
+            _timeBtwShots = startTimeBtwShots;
+        }
+        else
+        {
+            _timeBtwShots -= Time.deltaTime;
         }
 
     }
