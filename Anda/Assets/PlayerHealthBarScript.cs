@@ -3,38 +3,35 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class HealthBarScript : MonoBehaviour
-{
+public class PlayerHealthBarScript : MonoBehaviour {
+
     Image healthBar;
     public float maxhealth;
     public static float health;
     public Image healthBarBackground;
-    public Text bossText;
-    
-	void Start ()
+   
+    void Start()
     {
         healthBar = GetComponent<Image>();
         health = maxhealth;
         healthBarBackground.enabled = false;
         healthBar.enabled = false;
-        bossText.enabled = false;
        
         
-	}
-	
-	
-	void Update ()
+
+    }
+
+
+    void Update()
     {
         healthBar.fillAmount = health / maxhealth;
         if (health < maxhealth)
         {
             healthBarBackground.enabled = true;
             healthBar.enabled = true;
-            bossText.enabled = true;
+            
         }
-		
 
-	}
 
-    
+    }
 }

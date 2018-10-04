@@ -10,7 +10,12 @@ public class Projectile : MonoBehaviour {
     public int damage;
     public GameObject destroyEffect;
     public LayerMask whatIsSolid;
+    
+
    
+
+    
+
     private void Start()
     {
         Invoke("DestroyProjectile",lifeTime);

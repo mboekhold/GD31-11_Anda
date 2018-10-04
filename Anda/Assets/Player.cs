@@ -2,11 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
-
+        
     public float moveSpeed = 8f;
     public Joystick joystick;
     public Animator animator;
@@ -21,7 +22,7 @@ public class Player : MonoBehaviour
     private float _nextFire;
     public UnityEvent OnAttack;
     public int health;
-
+    
     public GameObject rightBullet, leftBullet;
     
     
@@ -29,7 +30,7 @@ public class Player : MonoBehaviour
     private void Start()
     {
         facingRight = true;
-
+        
         //_body.GetComponent<Rigidbody2D>();
         AttackButton.onClick.AddListener(() => { ShootArrow(); });
         
@@ -38,6 +39,7 @@ public class Player : MonoBehaviour
     }
     private void Update()
     {
+       
         Vector3 moveVector = (Vector3.right * joystick.Horizontal + Vector3.up * joystick.Vertical);
         animator.SetFloat("Speed", Mathf.Abs(joystick.Horizontal));
         if (moveVector != Vector3.zero)
@@ -96,10 +98,13 @@ public class Player : MonoBehaviour
         }
 
     }
+
+
     public void TakeDamage(int damage)
     {
         health -= damage;
-        HealthBarScript.health -= damage;
+        PlayerHealthBarScript.health -= damage;
     }
+    
 
 }

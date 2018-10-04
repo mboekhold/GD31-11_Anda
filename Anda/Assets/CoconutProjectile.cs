@@ -28,18 +28,18 @@ public class CoconutProjectile : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
     {
-        RaycastHit2D hitInfo = Physics2D.Raycast(transform.position, transform.up, distance, whatIsSolid);
+        RaycastHit2D hitInfo = Physics2D.Raycast(transform.position, rb.velocity, distance, whatIsSolid);
         if (hitInfo.collider != null)
         {
             if (hitInfo.collider.CompareTag("Player"))
             {
-
-                hitInfo.collider.GetComponent<Enemy>().TakeDamage(damage);
+                
+                hitInfo.collider.GetComponent<Player>().TakeDamage(damage);
             }
             DestroyProjectile();
 
         }
-        
+
     }
 
 

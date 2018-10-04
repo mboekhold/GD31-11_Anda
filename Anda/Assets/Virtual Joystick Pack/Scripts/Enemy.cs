@@ -14,6 +14,7 @@ public class Enemy : MonoBehaviour
     public GameObject coconut;
     public float FireRate;
     private float _nextFire;
+    public GameObject reward;
 
 
 
@@ -30,6 +31,7 @@ public class Enemy : MonoBehaviour
         {
             Instantiate(deathEffect, transform.position, Quaternion.identity);
             Destroy(gameObject);
+            Instantiate(reward, transform.position, Quaternion.identity);
         }
         MoveToAndAttackPlayer();
 
