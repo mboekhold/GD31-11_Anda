@@ -16,6 +16,7 @@ public class Enemy : MonoBehaviour
     private float _nextFire;
     public GameObject reward;
 
+ 
 
 
     private void Start()
