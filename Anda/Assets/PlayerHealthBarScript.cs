@@ -14,8 +14,8 @@ public class PlayerHealthBarScript : MonoBehaviour {
     {
         healthBar = GetComponent<Image>();
         health = maxhealth;
-        healthBarBackground.enabled = false;
-        healthBar.enabled = false;
+        healthBarBackground.enabled = true;
+        healthBar.enabled = true;
        
         
 

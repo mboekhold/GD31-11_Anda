@@ -9,43 +9,43 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1493441595706190}
+  m_RootGameObject: {fileID: 1299280450142628}
   m_IsPrefabAsset: 1
---- !u!1 &1493441595706190
+--- !u!1 &1299280450142628
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4466229802362904}
-  - component: {fileID: 212427556137751212}
+  - component: {fileID: 4704141867202704}
+  - component: {fileID: 212069937663775020}
   m_Layer: 0
-  m_Name: cannon ball
+  m_Name: Arrow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4466229802362904
+--- !u!4 &4704141867202704
 Transform:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1493441595706190}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.57, y: -0.18, z: 0}
-  m_LocalScale: {x: 0.11587373, y: 0.119199306, z: 1}
+  m_GameObject: {fileID: 1299280450142628}
+  m_LocalRotation: {x: 0.005091912, y: -0.005091914, z: -0.7070885, w: 0.7070885}
+  m_LocalPosition: {x: 0.266, y: -0.766, z: 0.003}
+  m_LocalScale: {x: 0.5413, y: 0.4909, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &212427556137751212
+  m_LocalEulerAnglesHint: {x: 0, y: -0.82500005, z: -90.00001}
+--- !u!212 &212069937663775020
 SpriteRenderer:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1493441595706190}
+  m_GameObject: {fileID: 1299280450142628}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -74,15 +74,15 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 2
-  m_Sprite: {fileID: 21300000, guid: 9412fe64077b31c40bb0fc80476b5749, type: 3}
+  m_SortingOrder: 3
+  m_Sprite: {fileID: 21300034, guid: 2e47170ba6114074f833b7c622cd7abb, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 2.76, y: 2.78}
+  m_Size: {x: 0.33, y: 0.95}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0

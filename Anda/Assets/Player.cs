@@ -12,18 +12,13 @@ public class Player : MonoBehaviour
     public Joystick joystick;
     public Animator animator;
     public static bool facingRight;
-    public Button AttackButton;
+
     private Rigidbody2D _body;
-    public float FireRate = 0;
     public LayerMask notToHit;
-    private float _timeBtwShots;
-    public float startTimeBtwShots;
-    public Transform shotPoint;
-    private float _nextFire;
-    public UnityEvent OnAttack;
     public int health;
     
-    public GameObject rightBullet, leftBullet;
+    
+
     
     
 
@@ -32,7 +27,7 @@ public class Player : MonoBehaviour
         facingRight = true;
         
         //_body.GetComponent<Rigidbody2D>();
-        AttackButton.onClick.AddListener(() => { ShootArrow(); });
+      
         
 
 
@@ -64,40 +59,7 @@ public class Player : MonoBehaviour
         }
     }
 
-    public void ShootArrow()
-    {
-        Vector2 position = transform.position;
-        position.x += .5f;
-        position.y += .5f;
-        if (_timeBtwShots <= 0)
-        {
-            OnAttack.Invoke();
-
-            if(facingRight)
-            {
-                Instantiate(rightBullet, shotPoint.position, transform.rotation);
-                animator.SetTrigger("Attack");
-                _timeBtwShots = startTimeBtwShots;
-            }
-            else
-            {
-                Instantiate(leftBullet, shotPoint.position, transform.rotation);
-                animator.SetTrigger("Attack");
-                _timeBtwShots = startTimeBtwShots;
-            }
-            
-
-
-
-
-
-        }
-        else
-        {
-            _timeBtwShots -= Time.deltaTime;
-        }
-
-    }
+   
 
 
     public void TakeDamage(int damage)

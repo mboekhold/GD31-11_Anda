@@ -6,10 +6,11 @@ public class Projectile : MonoBehaviour {
 
     public float speed;
     public float lifeTime;
-    public float distance;
-    public int damage;
     public GameObject destroyEffect;
+    public float distance;
     public LayerMask whatIsSolid;
+    public int damage;
+   
     
 
    
@@ -18,27 +19,23 @@ public class Projectile : MonoBehaviour {
 
     private void Start()
     {
-        Invoke("DestroyProjectile",lifeTime);
         
-        
-        
+        Invoke("DestroyProjectile",lifeTime); 
     }
     private void Update()
     {
-        
         RaycastHit2D hitInfo = Physics2D.Raycast(transform.position, transform.up, distance, whatIsSolid);
-        if (hitInfo.collider != null)
-        {
-            if (hitInfo.collider.CompareTag("Enemy"))
+            if(hitInfo.collider != null)
             {
-
+                if(hitInfo.collider.CompareTag("Enemy"))
+                {
+                    Debug.Log("DAMAGE");
                 hitInfo.collider.GetComponent<Enemy>().TakeDamage(damage);
+                }
+                DestroyProjectile();
+                
             }
-            DestroyProjectile();
-           
-        }
-        ShootProjectile();
-
+        transform.Translate(Vector2.up * speed * Time.deltaTime);
     }
 
     void DestroyProjectile()
@@ -48,13 +45,6 @@ public class Projectile : MonoBehaviour {
        
     }
 
-    public void ShootProjectile()
-    {
-        
-        transform.Translate(transform.right * speed * Time.deltaTime);
-
-
-
-    }
+   
 }
 
