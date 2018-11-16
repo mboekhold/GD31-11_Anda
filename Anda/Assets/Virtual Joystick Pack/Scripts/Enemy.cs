@@ -21,6 +21,7 @@ public class Enemy : MonoBehaviour
     private void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player").transform;
+        reward.gameObject.SetActive(false);
         
 
     }
@@ -31,7 +32,8 @@ public class Enemy : MonoBehaviour
         {
             Instantiate(deathEffect, transform.position, Quaternion.identity);
             Destroy(gameObject);
-            Instantiate(reward, transform.position, Quaternion.identity);
+            
+            reward.gameObject.SetActive(true);
         }
         MoveToAndAttackPlayer();
 

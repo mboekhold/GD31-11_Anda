@@ -13,10 +13,12 @@ public class CoconutProjectile : MonoBehaviour
     public LayerMask whatIsSolid;
     public Transform target;
     private Rigidbody2D rb;
+    public AudioSource audiosrc;
+    public AudioClip audioclip;
 
 
-	// Use this for initialization
-	void Start ()
+    // Use this for initialization
+    void Start ()
     {
         rb = GetComponent<Rigidbody2D>();
         target = GameObject.FindGameObjectWithTag("Player").transform;
@@ -35,6 +37,7 @@ public class CoconutProjectile : MonoBehaviour
             {
                 
                 hitInfo.collider.GetComponent<Player>().TakeDamage(damage);
+                AudioSource.PlayClipAtPoint(audioclip, transform.position);
             }
             DestroyProjectile();
 

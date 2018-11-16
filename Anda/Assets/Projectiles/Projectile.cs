@@ -10,7 +10,8 @@ public class Projectile : MonoBehaviour {
     public float distance;
     public LayerMask whatIsSolid;
     public int damage;
-   
+    public AudioSource audiosrc;
+    public AudioClip audioclip;
     
 
    
@@ -19,8 +20,10 @@ public class Projectile : MonoBehaviour {
 
     private void Start()
     {
-        
+        audiosrc.GetComponent<AudioSource>();
+        AudioSource.PlayClipAtPoint(audioclip, transform.position);
         Invoke("DestroyProjectile",lifeTime); 
+        
     }
     private void Update()
     {
@@ -29,8 +32,8 @@ public class Projectile : MonoBehaviour {
             {
                 if(hitInfo.collider.CompareTag("Enemy"))
                 {
-                    Debug.Log("DAMAGE");
-                hitInfo.collider.GetComponent<Enemy>().TakeDamage(damage);
+                    hitInfo.collider.GetComponent<Enemy>().TakeDamage(damage);
+                    
                 }
                 DestroyProjectile();
                 
@@ -41,6 +44,7 @@ public class Projectile : MonoBehaviour {
     void DestroyProjectile()
     {
         Instantiate(destroyEffect, transform.position, Quaternion.identity);
+        
         Destroy(gameObject);
        
     }
